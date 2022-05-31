@@ -2,28 +2,39 @@
 
 
 {% block content %}
-    <table>
-        <tr>
-            <th>Название товара</th>
-            <th>Описание</th>
-            <th>Дата производства</th>
-            <th>Цена</th>
-            <th>Единица измерения</th>
-            <th>Поставзщик</th>
-        </tr>
-        {% for object in object_list %}
-        <tr>
-            <td>{{ object.title }}</td>
-            <td>{{ object.description }}</td>
-            <td>{{ object.production_date }}</td>
-            <td>{{ object.price }}</td>
-            <td>{{ object.measure_unit }}</td>
-            <td>{{ object.supplier_name }}</td>
-        </tr>
-        {% endfor %}
-    </table>
+<table>
+    <tr>
+        <th>Название товара</th>
+        <th>Описание</th>
+        <th>Дата производства</th>
+        <th>Цена</th>
+        <th>Единица измерения</th>
+        <th>Поставзщик</th>
+        <th>Категория</th>
+    </tr>
+    {% for object in object_list %}
+    <tr>
+        <td>{{ object.title }}</td>
+        <td>{{ object.description }}</td>
+        <td>{{ object.production_date }}</td>
+        <td>{{ object.price }}</td>
+        <td>{{ object.measure_unit }}</td>
+        <td>{{ object.supplier_name }}</td>
+        <td>{{ object.category }}</td>
+    </tr>
+    {% endfor %}
+    <tr>
+        <td>{{ product.title }}</td>
+        <td>{{ product.description }}</td>
+        <td>{{ product.production_date }}</td>
+        <td>{{ product.price }}</td>
+        <td>{{ product.measure_unit }}</td>
+        <td>{{ product.supplier_name }}</td>
+        <td>{{ product.category }}</td>
+    </tr>
+</table>
 
-    <button type="button">Add a product</button>
+<button type="button">Add a product</button>
 
 {% endblock %}
 
