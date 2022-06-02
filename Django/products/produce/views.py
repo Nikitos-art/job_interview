@@ -1,6 +1,7 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.views.generic import ListView
-from .models.product import Product
+from produce.models import Product, Category
 from django.shortcuts import render
 
 
@@ -15,17 +16,5 @@ class ProductListViewAll(ListView):
     template_name = 'goods_list.html'
 
 
-def add_data(request):
-    return render(request, 'goods_list.html', context={
-        'object_list': Product.objects.all(),
-        'product': {
-            "title": "potato",
-            "description": "mini",
-            "production_date": "March 15, 2022",
-            "price": 5,
-            "measure_unit": "kg",
-            "supplier_name": "local produce",
-            "category": "food stuffs"
-        }
-    })
+
 

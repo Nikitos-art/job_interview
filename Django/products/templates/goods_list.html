@@ -12,17 +12,7 @@
         <th>Поставзщик</th>
         <th>Категория</th>
     </tr>
-    {% for object in object_list %}
-    <tr>
-        <td>{{ object.title }}</td>
-        <td>{{ object.description }}</td>
-        <td>{{ object.production_date }}</td>
-        <td>{{ object.price }}</td>
-        <td>{{ object.measure_unit }}</td>
-        <td>{{ object.supplier_name }}</td>
-        <td>{{ object.category }}</td>
-    </tr>
-    {% endfor %}
+    {% for product in object_list %}
     <tr>
         <td>{{ product.title }}</td>
         <td>{{ product.description }}</td>
@@ -30,11 +20,11 @@
         <td>{{ product.price }}</td>
         <td>{{ product.measure_unit }}</td>
         <td>{{ product.supplier_name }}</td>
-        <td>{{ product.category }}</td>
+        <td>{{ product.cat }}</td>
     </tr>
+    {% endfor %}
 </table>
 
 <button type="button">Add a product</button>
 
 {% endblock %}
-
