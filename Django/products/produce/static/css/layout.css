@@ -1,0 +1,12 @@
+table, th, td {
+  border: 1px solid;
+}
+
+cat_table {
+  width: 100%;
+}
+
+button {
+    border: 3px solid green;
+    padding: 5px;
+}
