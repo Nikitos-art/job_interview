@@ -1,8 +1,7 @@
 {% extends 'base.html' %}
 
-
 {% block content %}
-<table>
+<table class="cat_table">
     <tr>
         <th>Название товара</th>
         <th>Описание</th>
@@ -12,7 +11,7 @@
         <th>Поставзщик</th>
         <th>Категория</th>
     </tr>
-    {% for product in object_list %}
+    {% for product in products %}
     <tr>
         <td>{{ product.title }}</td>
         <td>{{ product.description }}</td>
@@ -26,5 +25,21 @@
 </table>
 
 <button type="button">Add a product</button>
+
+{% if cat_selected == 0 %}
+		<li class="selected">All categories</li>
+{% else %}
+		<li><a href="{% url 'home' %}">All categories</a></li>
+{% endif %}
+
+
+{% for c in cats %}
+	{% if c.pk == cat_selected %}
+		<li class="selected">{{c.name}}</li>
+	{% else %}
+		<li><a href="{{ c.get_absolute_url }}">{{c.name}}</a></li>
+	{% endif %}
+{% endfor %}
+
 
 {% endblock %}

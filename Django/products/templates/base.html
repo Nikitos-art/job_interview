@@ -1,5 +1,6 @@
 {% load static %}
-<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+<link href="{% static 'css/layout.css' %}" rel="stylesheet">
+
 
 <!DOCTYPE html>
 
@@ -7,8 +8,13 @@
 <head>
     <meta charset="UTF-8">
     <title>{{title|title}}</title>
-    <a href="{% url 'goods_list' %}">Goods list</a>
 </head>
+
+{% block mainmenu %}
+<div class="main_menu">
+    <a href="{% url 'home' %}">All Goods list</a>
+</div>
+{% endblock mainmenu %}
 
 <body>
 
