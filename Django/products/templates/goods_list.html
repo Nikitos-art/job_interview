@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{{ site.name }}
+
+<table class="cat_table">
+    <tr>
+        <th>Название товара</th>
+        <th>Описание</th>
+        <th>Дата производства</th>
+        <th>Цена</th>
+        <th>Единица измерения</th>
+        <th>Поставзщик</th>
+        <th>Категория</th>
+    </tr>
+    {% for product in products %}
+    <tr>
+        <td>{{ product.title }}</td>
+        <td>{{ product.description }}</td>
+        <td>{{ product.production_date }}</td>
+        <td>{{ product.price }}</td>
+        <td>{{ product.measure_unit }}</td>
+        <td>{{ product.supplier_name }}</td>
+        <td>{{ product.cat }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<button type="button">Add a product</button>
+
+{% if cat_selected == 0 %}
+    <li class="selected">All categories</li>
+{% else %}
+    <li><a href="{% url 'home' %}">All categories</a></li>
+{% endif %}
+
+
+{% for c in cats %}
+    {% if c.pk == cat_selected %}
+        <li class="selected">{{c.name}}</li>
+    {% else %}
+        <li><a href="{{ c.get_absolute_url }}">{{c.name}}</a></li>
+    {% endif %}
+{% endfor %}
+
+
+{% endblock %}
