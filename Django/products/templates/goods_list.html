@@ -2,8 +2,6 @@
 
 {% block content %}
 
-{{ site.name }}
-
 <table class="cat_table">
     <tr>
         <th>Название товара</th>
@@ -43,6 +41,9 @@
         <li><a href="{{ c.get_absolute_url }}">{{c.name}}</a></li>
     {% endif %}
 {% endfor %}
+
+
+{{ site.name }}
 
 
 {% endblock %}

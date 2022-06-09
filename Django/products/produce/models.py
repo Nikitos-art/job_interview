@@ -1,6 +1,8 @@
 from django.db import models
+from django.db.models import Manager
 from django.urls import reverse
 from django.contrib.sites.models import Site
+from django.contrib.sites.managers import CurrentSiteManager
 
 
 class Product(models.Model):
@@ -12,6 +14,8 @@ class Product(models.Model):
     supplier_name = models.CharField(max_length=64, verbose_name='Имя поставщика')
     cat = models.ForeignKey('Category', on_delete=models.PROTECT)
     site = models.ForeignKey(Site, on_delete=models.CASCADE, null=True)
+    objects = Manager()
+    on_site = CurrentSiteManager('site')
 
     def __str__(self):
         return self.title
@@ -22,7 +26,6 @@ class Product(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=32)
-    site = models.OneToOneField(Site, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.name
