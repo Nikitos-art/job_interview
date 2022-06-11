@@ -1,0 +1,25 @@
+{% load static %}
+<link href="{% static 'css/layout.css' %}" rel="stylesheet">
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title|title}}</title>
+</head>
+
+{% block mainmenu %}
+<div class="main_menu">
+    <a href="{% url 'home' %}">All Goods list</a>
+</div>
+{% endblock mainmenu %}
+
+<body>
+
+{% block content %}
+{% endblock %}
+
+</body>
+</html>

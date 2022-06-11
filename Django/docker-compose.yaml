@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:13.7
+    privileged: true
+    restart: always
+    ports:
+       - 54325:5432
+    environment:
+      POSTGRES_DB: products
+      POSTGRES_USER: nikita
+      POSTGRES_PASSWORD: qwerty
+      PGDATA: "C:/Users/PC/PycharmProjects/job_interview/job_interview/Django/data_stuff"
+    volumes:
+      - "C:/Users/PC/PycharmProjects/job_interview/job_interview/Django/data_stuff"
+
+#  backend:
+#    build:
+#      context: ./products
+#    privileged: true
+#    restart: always
+#    expose:
+#      - 8000
+#    command: bash -c "
+#      python manage.py migrate &&
+#      gunicorn products.wsgi -b 0.0.0.0:8000
+#      "
+#    environment:
+#      DJANGO_SETTINGS_MODULE: products.settings.debug_ext
+#    depends_on:
+#      - db
+
+  nginx:
+    build:
+      context: ./nginx
+    ports:
+      - 8002:8002
+#    depends_on:
+
+
+
+
